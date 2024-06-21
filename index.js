@@ -4,7 +4,7 @@ function appendToTextDisplay(char){
     if (textDisplay.value.length <= 10) { 
         textDisplay.value += char;
     } else {
-        console.log("Character limit reached")
+        console.log("Character limit reached");
     }
 }
 
@@ -13,16 +13,16 @@ function appendPercentage() {
     let operand = parseFloat(lastNumber(textDisplay.value));
     let decimalForm = operand / 100;
 
-    textDisplay.value = textDisplay.value.slice(0, (textDisplay.value.length - String(operand).length)) + String(decimalForm)
+    textDisplay.value = textDisplay.value.slice(0, (textDisplay.value.length - String(operand).length)) + String(decimalForm);
 }
 //Make the last number positive or negative
 function invertNumber() {
-    let operand = parseFloat(lastNumber(textDisplay.value))
-    let prefix = textDisplay.value.charAt((textDisplay.value.length - String(operand).length - 1))
-    let displayValue = textDisplay.value
+    let operand = parseFloat(lastNumber(textDisplay.value));
+    let prefix = textDisplay.value.charAt((textDisplay.value.length - String(operand).length - 1));
+    let displayValue = textDisplay.value;
     
-    textDisplay.value = displayValue.slice(0, displayValue.length - String(operand).length-1)
-    console.log(textDisplay.value)
+    textDisplay.value = displayValue.slice(0, displayValue.length - String(operand).length-1);
+    console.log(textDisplay.value);
     if (prefix =="/") {
         textDisplay.value += "/-" + String(operand);
     } else if (prefix == "*") {
@@ -52,7 +52,7 @@ function calculate(){
 
 function clearTextDisplay(){
     textDisplay.value = "";
-    console.log("Display cleared.")
+    console.log("Display cleared.");
 }
 
 //To keep the UI in line with the template, this only works with the keyboard
@@ -79,8 +79,8 @@ function lastNumber(str) {
             lastNumber = char + lastNumber;
             foundDigit = true;
         } else if(char === '.' && !foundDecimal && foundDigit) {
-            lastNumber = char + lastNumber
-            foundDecimal = true
+            lastNumber = char + lastNumber;
+            foundDecimal = true;
         } else if (foundDigit || foundDecimal) {
             break;
         }
