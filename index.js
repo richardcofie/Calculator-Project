@@ -1,13 +1,17 @@
 const textDisplay = document.getElementById("textDisplay");
 
 function appendToTextDisplay(char){
-    textDisplay.value += char;
+    if (textDisplay.value.length <= 10) { 
+        textDisplay.value += char;
+    } else {
+        console.log("Character limit reached")
+    }
 }
 
 //Turn the last number into a decimal or divide by 100
 function appendPercentage() {
-    let operand = parseFloat(lastNumber(textDisplay.value))
-    let decimalForm = operand / 100
+    let operand = parseFloat(lastNumber(textDisplay.value));
+    let decimalForm = operand / 100;
 
     textDisplay.value = textDisplay.value.slice(0, (textDisplay.value.length - String(operand).length)) + String(decimalForm)
 }
@@ -37,7 +41,7 @@ function invertNumber() {
 function calculate(){
     try{
         textDisplay.value  = eval(textDisplay.value);
-        console.log(textDisplay.value)
+        
     } 
     catch {
         textDisplay.value = "Error"
@@ -49,6 +53,17 @@ function calculate(){
 function clearTextDisplay(){
     textDisplay.value = "";
     console.log("Display cleared.")
+}
+
+//To keep the UI in line with the template, this only works with the keyboard
+function backspace(){
+    textDisplay.value = textDisplay.value.slice(0, (textDisplay.value.length-1));
+}
+
+function checkForError(){
+    if (textDisplay.value == "Error" || textDisplay.value == "undefined" || textDisplay.value == "NaN"){
+        const thisTimeout = setTimeout(clearTextDisplay, 1500);
+    }
 }
 
 //function used to obtain a string of the last number in the text input box, to be used for calculations
@@ -74,12 +89,38 @@ function lastNumber(str) {
     return foundDigit ? lastNumber : null;
 }
 
-//Additional Num row keys input
-validNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//Additional keyboard support
+validNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 document.addEventListener("keydown", event => {
 
-    if (event.key in validNumbers) {
-        textDisplay.value += event.key
-        console.log(event)
+    checkForError();
+    //Number and basic operators input
+    console.log(event.key);
+
+    if (event.key in validNumbers ){
+        appendToTextDisplay(event.key);
+    } else if (event.key == "-"){
+        appendToTextDisplay(event.key);
+    } else if (event.key == "+"){
+        appendToTextDisplay(event.key);
+    } else if (event.key == "/"){
+        appendToTextDisplay(event.key);
+    } else if (event.key == "*"){
+        appendToTextDisplay(event.key);
+    } else if (event.key == "%"){
+        appendPercentage();
+    } else if (event.key == "=" || event.key == "Enter"){
+        calculate();
+    } else if (event.key == "c"){
+        clearTextDisplay();
+    } else if (event.key == "Backspace"){
+        backspace();
     }
+
+
+})
+
+document.addEventListener("click", event => {
+    checkForError();
 })
