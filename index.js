@@ -124,3 +124,14 @@ document.addEventListener("keydown", event => {
 document.addEventListener("click", event => {
     checkForError();
 })
+
+//Code from here for the login page
+//Get user who is logged in from local storage, and append their name to the webpage
+users = JSON.parse(localStorage.getItem('users'));
+currentUser = users[localStorage.getItem("currentUser")];
+
+
+const userDisplayText = document.getElementById("userDisplayText");
+
+firstName = currentUser.Name.split(" ")[0];
+userDisplayText.innerHTML = "Welcome back, " + String(firstName);

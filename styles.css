@@ -2,10 +2,12 @@ body {
     margin: auto;
     padding: 20px;
     background-color: rgb(71, 71, 71);
-    align-content: center;
 }
 
 #calculator {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
     width: 300px;
     display: grid;
     background-color: rgb(34, 34, 34);
@@ -58,4 +60,24 @@ body {
 
 .scrollable-box::-webkit-scrollbar {
     display: none;
+}
+
+
+
+#userDisplay {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    word-wrap: normal;
+    transform: translate(-50%, 0);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 3px #2d2d2d;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#userDisplayText {
+    font-size: 25px;
 }

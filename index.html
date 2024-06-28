@@ -2,42 +2,56 @@
 
 <html lang="en">
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             Calculator Project
         </title>
+        <script src="https://kit.fontawesome.com/892fd2ac52.js" crossorigin="anonymous"></script>
     </head>
 
     <link rel="stylesheet" href="styles.css"> 
     <body>
-        <div>
-
-            
+        <div id="container">
             <div id="calculator">
                 <input id="textDisplay" readonly placeholder="000"></input>
                 <button onclick="clearTextDisplay()">AC</button>
                 <button onclick="invertNumber()">+/-</button>
                 <button onclick="appendPercentage()">%</button>
                 <button onclick="appendToTextDisplay('/')" class="buttons-symbols">÷</button>
+
                 <button onclick="appendToTextDisplay('7')">7</button>
                 <button onclick="appendToTextDisplay('8')">8</button>
                 <button onclick="appendToTextDisplay('9')">9</button>
                 <button onclick="appendToTextDisplay('*')" class="buttons-symbols">x</button>
+
                 <button onclick="appendToTextDisplay('4')">4</button>
                 <button onclick="appendToTextDisplay('5')">5</button>
                 <button onclick="appendToTextDisplay('6')">6</button>
                 <button onclick="appendToTextDisplay('-')" class="buttons-symbols">-</button>
+
                 <button onclick="appendToTextDisplay('1')">1</button>
                 <button onclick="appendToTextDisplay('2')">2</button>
                 <button onclick="appendToTextDisplay('3')">3</button>
                 <button onclick="appendToTextDisplay('+')" class="buttons-symbols">+</button>
+                
                 <button onclick="appendToTextDisplay('0')" id="zero">0</button>
                 <button onclick="appendToTextDisplay('.')">.</button>
                 <button onclick="calculate()" class="buttons-symbols">=</button>
 
             </div>
 
+            <div id="userDisplay">
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <div id="userDisplayText">Welcome back,</div>
+                </div>
+                <a href="login.html" id="logOutButton">Log out</a>
+            </div>
         </div>
 
         <script src="index.js"></script>
+        <script src="login.js"></script>
     </body>
 </html>

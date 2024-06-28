@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/892fd2ac52.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h1 id="title">Sign Up</h1>
+        <form>
+          <div class="input-group">
+            <div class="input-field" id="nameField">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" placeholder="Name (Separate other names with spaces)" id="nameInput">
+
+            </div>
+
+            <div class="input-field">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" placeholder="Email" id="emailInput">
+
+            </div>
+
+            <div class="input-field">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Password (minimum: 8 characters)" id="passwordInput">
+
+            </div>
+            <!-- 
+            <p>Lost password? <a href="#">Reset it now</a></p>
+          -->
+          </div>
+
+          <div class="btn-field">
+            <button type="button" id="signUpBtn" ><a id="calcLink"href="#">Sign Up</a></button>
+            <button type="button" id="signInBtn" ><a id="calcLink"href="#">Sign In</a></button>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>
