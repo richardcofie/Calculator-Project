@@ -85,7 +85,7 @@ function addNewUser(name, email, password) {
     getUsersLocal();
 }
 function goToHomePage() {
-    calcLink.href = "index.html";
+    window.location.href = "index.html";
     console.log({calcLink});
 
 }
@@ -164,7 +164,5 @@ console.log("Last Session User:");
 console.log(getCurrentUser());
 
 /*
-To do
 the ability to edit user info
-ability to delete a profile
 */ 

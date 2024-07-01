@@ -52,7 +52,7 @@ body {
         background-color: blue;
 }
 .buttons-symbols {
-    background-color: orange;
+    background-color: #a7f7cc;
 }
 #zero {
     grid-column: span 2;
@@ -80,4 +80,13 @@ body {
 
 #userDisplayText {
     font-size: 25px;
+}
+
+#deleteProfile {
+    font-size: 16px;
+    color: #551a8b;
+}
+
+#deleteProfile :hover{
+    cursor: pointer;
 }

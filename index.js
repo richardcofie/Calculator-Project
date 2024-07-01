@@ -127,11 +127,45 @@ document.addEventListener("click", event => {
 
 //Code from here for the login page
 //Get user who is logged in from local storage, and append their name to the webpage
-users = JSON.parse(localStorage.getItem('users'));
-currentUser = users[localStorage.getItem("currentUser")];
+let users = JSON.parse(localStorage.getItem('users'));
+let currentUser = users[localStorage.getItem("currentUser")];
+console.log(currentUser);
 
 
 const userDisplayText = document.getElementById("userDisplayText");
 
 firstName = currentUser.Name.split(" ")[0];
 userDisplayText.innerHTML = "Welcome back, " + String(firstName);
+
+
+//The ability to delete profiles
+const deleteButton = document.getElementById("deleteProfile");
+
+function deleteAccount() {
+    users = users.filter(user => user.Email != currentUser.Email);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", null);
+
+    window.location.href = "login.html";
+}
+
+deleteButton.onclick = deleteAccount;
+
+
+
+//If the user is idle, send them back to login.
+const idleDuration = 60*5; //In seconds
+let idleTimer;
+
+function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(goToLogin, idleDuration * 1000);
+}
+
+function goToLogin() {
+    localStorage.setItem("currentUser", null);
+    alert("5 minutes session expired, log in again.")
+    window.location.href = "login.html";
+}
+
+resetIdleTimer();
